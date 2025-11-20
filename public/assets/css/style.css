@@ -1,0 +1,113 @@
+/* Smooth scroll untuk seluruh halaman */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Custom scrollbar (khusus browser berbasis WebKit: Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 10px !important;
+    /* lebar scroll */
+    height: 10px !important;
+    /* untuk horizontal scroll */
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1 !important;
+    /* warna background track */
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #cf5254, #d81b1f) !important;
+    /* hijau gradasi */
+    border-radius: 10px !important;
+    transition: background 0.3s !important;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #d81b1f, #793132) !important;
+    /* lebih gelap saat hover */
+}
+
+/* Firefox support */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #d81b1f #f1f1f1;
+}
+
+body {
+    background: #f8f9fa;
+    font-size: 14px;
+}
+
+.sidebar {
+    background: #ffffff;
+    border-right: 1px solid #dee2e6;
+    height: 100vh;
+    overflow-y: auto;
+}
+
+.total-box {
+    background: #28a745;
+    color: #fff;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    position: sticky;
+    top: 10px;
+    z-index: 100;
+}
+
+.table-wrapper {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.shortcut-btn {
+    font-size: 12px;
+    flex: 1;
+}
+
+.shortcut-bar {
+    position: sticky;
+    bottom: 0;
+    background: #fff;
+    border-top: 1px solid #dee2e6;
+    z-index: 99;
+    gap: 10px;
+}
+
+tr.selected {
+    background-color: #f0f8ff !important;
+    /* biru muda */
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.tr-highlight {
+    background-color: #fff3cd !important;
+    /* kuning muda */
+    transition: background-color 0.8s ease;
+}
+
+.bg-custom {
+    background-color: #d81b1f;
+}
+
+.list-jasa-scroll {
+    max-height: 150px;
+    /* tinggi maksimal, sesuaikan kebutuhan */
+    overflow-y: auto;
+    /* tampilkan scroll jika melebihi max-height */
+    border: 1px solid #ddd;
+    /* opsional, supaya terlihat batas */
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.list-jasa-scroll .form-check {
+    margin-bottom: 5px;
+    /* spasi antar item */
+}

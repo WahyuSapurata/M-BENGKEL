@@ -1,0 +1,45 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Ramsey\Uuid\Uuid;
+
+class Produk extends Model
+{
+    use HasFactory;
+
+    protected $table = 'produks';
+    protected $primaryKey = 'id';
+    protected $fillable = [
+        'uuid',
+        'uuid_kategori',
+        'uuid_suplayer',
+        'sub_kategori',
+        'kode',
+        'nama_barang',
+        'merek',
+        'hrg_modal',
+        'profit',
+        'minstock',
+        'maxstock',
+        'satuan',
+        'profit_a',
+        'profit_b',
+        'profit_c',
+        'foto',
+        'created_by',
+        'update_by',
+    ];
+
+    protected static function boot()
+    {
+        parent::boot();
+
+        // Event listener untuk membuat UUID sebelum menyimpan
+        static::creating(function ($model) {
+            $model->uuid = Uuid::uuid4()->toString();
+        });
+    }
+}
