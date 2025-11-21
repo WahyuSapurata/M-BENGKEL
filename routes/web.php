@@ -136,6 +136,13 @@ Route::group([
     });
 
     Route::prefix('accounting')->group(function () {
+        Route::get('/pengeluaran', [App\Http\Controllers\PengeluaranController::class, 'index'])->name('pengeluaran');
+        Route::get('/pengeluaran-get', [App\Http\Controllers\PengeluaranController::class, 'get'])->name('pengeluaran-get');
+        Route::post('/pengeluaran-store', [App\Http\Controllers\PengeluaranController::class, 'store'])->name('pengeluaran-store');
+        Route::get('/pengeluaran-edit/{params}', [App\Http\Controllers\PengeluaranController::class, 'edit'])->name('pengeluaran-edit');
+        Route::post('/pengeluaran-update/{params}', [App\Http\Controllers\PengeluaranController::class, 'update'])->name('pengeluaran-update');
+        Route::delete('/pengeluaran-delete/{params}', [App\Http\Controllers\PengeluaranController::class, 'delete'])->name('pengeluaran-delete');
+
         Route::get('/vw-jurnal-umum', [App\Http\Controllers\ReportController::class, 'vw_jurnal_umum'])->name('vw-jurnal-umum');
         Route::get('/get-jurnal-umum', [App\Http\Controllers\ReportController::class, 'get_jurnal_umum'])->name('get-jurnal-umum');
 

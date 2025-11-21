@@ -129,7 +129,7 @@
                                 </div>
                             </div>
 
-                            <div class="col-12 col-md-6">
+                            {{-- <div class="col-12 col-md-6">
                                 <div class="card-header">
                                     <h5 class="card-title">Produk Paling Laku</h5>
                                 </div>
@@ -169,7 +169,7 @@
                                         </table>
                                     </div>
                                 </div>
-                            </div>
+                            </div> --}}
                         </div>
                         <div class="card-footer">
                             <div class="row g-4">
@@ -419,75 +419,75 @@
 
             loadPenjualanTargetBulanan(); // Panggil fungsi untuk load penjualan harian
 
-            function loadPenjualanTerlaku() {
-                $.get("/admin/get-penjualan-terlaku")
-                    .done(function(res) {
-                        // Kosongkan tabel
-                        $('#terlaku-body').empty();
-                        $('#untung-body').empty();
+            //     function loadPenjualanTerlaku() {
+            //         $.get("/admin/get-penjualan-terlaku")
+            //             .done(function(res) {
+            //                 // Kosongkan tabel
+            //                 $('#terlaku-body').empty();
+            //                 $('#untung-body').empty();
 
-                        // Cek jika tidak ada data
-                        if (!res || (!res.top_laku && !res.top_untung)) {
-                            $('#terlaku-body').append(`
-                <tr>
-                    <td colspan="2" class="text-center">Tidak ada data</td>
-                </tr>
-            `);
-                            $('#untung-body').append(`
-                <tr>
-                    <td colspan="2" class="text-center">Tidak ada data</td>
-                </tr>
-            `);
-                            return;
-                        }
+            //                 // Cek jika tidak ada data
+            //                 if (!res || (!res.top_laku && !res.top_untung)) {
+            //                     $('#terlaku-body').append(`
+        //         <tr>
+        //             <td colspan="2" class="text-center">Tidak ada data</td>
+        //         </tr>
+        //     `);
+            //                     $('#untung-body').append(`
+        //         <tr>
+        //             <td colspan="2" class="text-center">Tidak ada data</td>
+        //         </tr>
+        //     `);
+            //                     return;
+            //                 }
 
-                        // Produk paling laku
-                        if (res.top_laku && res.top_laku.length > 0) {
-                            res.top_laku.forEach(item => {
-                                $('#terlaku-body').append(`
-                    <tr>
-                        <td>${item.nama_barang ?? '-'}</td>
-                        <td class="text-center">${item.total_terjual ?? 0}</td>
-                    </tr>
-                `);
-                            });
-                        } else {
-                            $('#terlaku-body').append(`
-                <tr>
-                    <td colspan="2" class="text-center">Tidak ada data</td>
-                </tr>
-            `);
-                        }
+            //                 // Produk paling laku
+            //                 if (res.top_laku && res.top_laku.length > 0) {
+            //                     res.top_laku.forEach(item => {
+            //                         $('#terlaku-body').append(`
+        //             <tr>
+        //                 <td>${item.nama_barang ?? '-'}</td>
+        //                 <td class="text-center">${item.total_terjual ?? 0}</td>
+        //             </tr>
+        //         `);
+            //                     });
+            //                 } else {
+            //                     $('#terlaku-body').append(`
+        //         <tr>
+        //             <td colspan="2" class="text-center">Tidak ada data</td>
+        //         </tr>
+        //     `);
+            //                 }
 
-                        // Produk dengan untung terbanyak
-                        if (res.top_untung && res.top_untung.length > 0) {
-                            res.top_untung.forEach(item => {
-                                $('#untung-body').append(`
-                    <tr>
-                        <td>${item.nama_barang ?? '-'}</td>
-                        <td class="text-end">Rp ${Number(item.total_profit || 0).toLocaleString('id-ID')}</td>
-                    </tr>
-                `);
-                            });
-                        } else {
-                            $('#untung-body').append(`
-                <tr>
-                    <td colspan="2" class="text-center">Tidak ada data</td>
-                </tr>
-            `);
-                        }
-                    })
-                    .fail(function(err) {
-                        console.error("Gagal memuat data:", err);
-                        $('#terlaku-body, #untung-body').html(`
-            <tr>
-                <td colspan="2" class="text-center text-danger">Gagal memuat data</td>
-            </tr>
-        `);
-                    });
-            }
+            //                 // Produk dengan untung terbanyak
+            //                 if (res.top_untung && res.top_untung.length > 0) {
+            //                     res.top_untung.forEach(item => {
+            //                         $('#untung-body').append(`
+        //             <tr>
+        //                 <td>${item.nama_barang ?? '-'}</td>
+        //                 <td class="text-end">Rp ${Number(item.total_profit || 0).toLocaleString('id-ID')}</td>
+        //             </tr>
+        //         `);
+            //                     });
+            //                 } else {
+            //                     $('#untung-body').append(`
+        //         <tr>
+        //             <td colspan="2" class="text-center">Tidak ada data</td>
+        //         </tr>
+        //     `);
+            //                 }
+            //             })
+            //             .fail(function(err) {
+            //                 console.error("Gagal memuat data:", err);
+            //                 $('#terlaku-body, #untung-body').html(`
+        //     <tr>
+        //         <td colspan="2" class="text-center text-danger">Gagal memuat data</td>
+        //     </tr>
+        // `);
+            //             });
+            //     }
 
-            loadPenjualanTerlaku();
+            //     loadPenjualanTerlaku();
         });
     </script>
 @endpush

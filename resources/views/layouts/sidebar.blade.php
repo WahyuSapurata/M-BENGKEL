@@ -7,8 +7,7 @@
         <div class="m-header justify-content-center">
             <a class="b-brand">
                 <!-- ========   change your logo hear   ============ -->
-                <img src="{{ asset('logo.png') }}" style="width: 200px; margin-top: 6px" alt=""
-                    class="logo logo-lg" />
+                <img src="{{ asset('logo.png') }}" style="width: 200px" alt="" class="logo logo-lg" />
                 <img src="{{ asset('logo_favicon.png') }}" alt="" class="logo logo-sm" />
             </a>
         </div>
@@ -113,6 +112,10 @@
                                 class="nxl-item {{ isset($path[2]) && $path[2] === 'vw-lap-transaksi' ? 'active' : '' }}">
                                 <a class="nxl-link" href="{{ route('admin.vw-lap-transaksi') }}">Laporan
                                     Transaksi</a>
+                            </li>
+
+                            <li class="nxl-item {{ isset($path[2]) && $path[2] === 'pengeluaran' ? 'active' : '' }}">
+                                <a class="nxl-link" href="{{ route('admin.pengeluaran') }}">Pengeluaran</a>
                             </li>
 
                             <li

@@ -41,7 +41,7 @@
         <div class="auth-cover-content-inner">
             <div class="auth-cover-content-wrapper">
                 <div class="auth-img">
-                    <img src="{{ asset('logo_full.png') }}" alt="" class="img-fluid">
+                    <img src="{{ asset('logo.png') }}" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
