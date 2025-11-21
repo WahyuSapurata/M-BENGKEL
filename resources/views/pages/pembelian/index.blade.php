@@ -517,23 +517,23 @@
                             let subTotal = item.qty * harga;
 
                             let row = `
-                    <div class="row mb-2 produk-row">
-                        <div class="col-3">
-                            <select name="uuid_produk[]" class="form-select basic-usage" data-placeholder="Pilih produk">
-                                ${produkOptions(data, item.uuid_produk)}
-                            </select>
-                        </div>
-                        <div class="col-3">
-                            <input type="number" name="qty[]" class="form-control qty" value="${item.qty}">
-                        </div>
-                        <div class="col-3">
-                            <input type="text" name="harga[]" class="form-control harga formatRupiah" value="${formatRupiah(harga)}">
-                        </div>
-                        <div class="col-3">
-                            <input type="text" class="form-control sub-total formatRupiah" value="${formatRupiah(subTotal)}">
-                        </div>
-                    </div>
-                `;
+                                <div class="row mb-2 produk-row">
+                                    <div class="col-3">
+                                        <select name="uuid_produk[]" class="form-select basic-usage" data-placeholder="Pilih produk">
+                                            ${produkOptions(data, item.uuid_produk)}
+                                        </select>
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="number" name="qty[]" class="form-control qty" value="${item.qty}">
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" name="harga[]" class="form-control harga formatRupiah" value="${formatRupiah(harga)}">
+                                    </div>
+                                    <div class="col-3">
+                                        <input type="text" class="form-control sub-total formatRupiah" value="${formatRupiah(subTotal)}">
+                                    </div>
+                                </div>
+                            `;
                             $('#produk-wrapper').append(row);
                         });
 

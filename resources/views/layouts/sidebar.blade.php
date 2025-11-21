@@ -118,6 +118,10 @@
                                 <a class="nxl-link" href="{{ route('admin.pengeluaran') }}">Pengeluaran</a>
                             </li>
 
+                            <li class="nxl-item {{ isset($path[2]) && $path[2] === 'pemindahan' ? 'active' : '' }}">
+                                <a class="nxl-link" href="{{ route('admin.pemindahan') }}">Pemindahan Dana</a>
+                            </li>
+
                             <li
                                 class="nxl-item {{ isset($path[2]) && $path[2] === 'vw-jurnal-umum' ? 'active' : '' }}">
                                 <a class="nxl-link" href="{{ route('admin.vw-jurnal-umum') }}">Jurnal Umum</a>

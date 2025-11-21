@@ -66,6 +66,7 @@
                                             <th class="text-capitalize">No</th>
                                             <th class="text-capitalize">deskripsi</th>
                                             <th class="text-capitalize">sumber dana</th>
+                                            <th class="text-capitalize">tujuan dana</th>
                                             <th class="text-capitalize">nominal</th>
                                             <th class="text-end">Actions</th>
                                         </tr>
@@ -100,6 +101,17 @@
                         <div class="mb-2">
                             <label class="text-capitalize form-label">Sumber Dana</label>
                             <select name="sumber_dana" id="sumber_dana" data-placeholder="Pilih inputan"
+                                class="form-select basic-usage">
+                                <option value=""></option>
+                                @foreach ($coa as $a)
+                                    <option value="{{ $a->nama }}">{{ $a->nama }}</option>
+                                @endforeach
+                            </select>
+                            <div class="invalid-feedback"></div>
+                        </div>
+                        <div class="mb-2">
+                            <label class="text-capitalize form-label">Tujuan Dana</label>
+                            <select name="tujuan_dana" id="tujuan_dana" data-placeholder="Pilih inputan"
                                 class="form-select basic-usage">
                                 <option value=""></option>
                                 @foreach ($coa as $a)
@@ -182,11 +194,11 @@
 
             let uuid = $('#uuid').val();
 
-            let updateUrl = `{{ route('admin.pengeluaran-update', ':uuid') }}`;
+            let updateUrl = `{{ route('admin.pemindahan-update', ':uuid') }}`;
             updateUrl = updateUrl.replace(':uuid', uuid);
 
             let url = uuid ? updateUrl :
-                `{{ route('admin.pengeluaran-store') }}`;
+                `{{ route('admin.pemindahan-store') }}`;
             let method = uuid ? 'POST' : 'POST';
 
             $.ajax({
@@ -248,7 +260,7 @@
             $('.invalid-feedback').remove();
             $('#modal').modal('show');
             let uuid = $(this).data('uuid');
-            let editUrl = `{{ route('admin.pengeluaran-edit', ':uuid') }}`;
+            let editUrl = `{{ route('admin.pemindahan-edit', ':uuid') }}`;
             editUrl = editUrl.replace(':uuid', uuid);
             $.get(editUrl, function(res) {
                 $.each(res, function(key, value) {
@@ -260,7 +272,7 @@
         // Hapus
         $('#dataTables').on('click', '.delete', function() {
             let uuid = $(this).data('uuid');
-            let deleteUrl = `{{ route('admin.pengeluaran-delete', ':uuid') }}`;
+            let deleteUrl = `{{ route('admin.pemindahan-delete', ':uuid') }}`;
             deleteUrl = deleteUrl.replace(':uuid', uuid);
 
             Swal.fire({
@@ -313,7 +325,7 @@
                 pageLength: 10,
                 processing: true,
                 serverSide: true,
-                ajax: "{{ route('admin.pengeluaran-get') }}",
+                ajax: "{{ route('admin.pemindahan-get') }}",
                 columns: [{
                         data: null,
                         class: 'mb-kolom-nomor align-content-center',
@@ -327,6 +339,10 @@
                     },
                     {
                         data: 'sumber_dana',
+                        class: 'mb-kolom-text text-left align-content-center'
+                    },
+                    {
+                        data: 'tujuan_dana',
                         class: 'mb-kolom-text text-left align-content-center'
                     },
                     {

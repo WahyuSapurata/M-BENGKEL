@@ -143,6 +143,13 @@ Route::group([
         Route::post('/pengeluaran-update/{params}', [App\Http\Controllers\PengeluaranController::class, 'update'])->name('pengeluaran-update');
         Route::delete('/pengeluaran-delete/{params}', [App\Http\Controllers\PengeluaranController::class, 'delete'])->name('pengeluaran-delete');
 
+        Route::get('/pemindahan', [App\Http\Controllers\PemindahanDanaController::class, 'index'])->name('pemindahan');
+        Route::get('/pemindahan-get', [App\Http\Controllers\PemindahanDanaController::class, 'get'])->name('pemindahan-get');
+        Route::post('/pemindahan-store', [App\Http\Controllers\PemindahanDanaController::class, 'store'])->name('pemindahan-store');
+        Route::get('/pemindahan-edit/{params}', [App\Http\Controllers\PemindahanDanaController::class, 'edit'])->name('pemindahan-edit');
+        Route::post('/pemindahan-update/{params}', [App\Http\Controllers\PemindahanDanaController::class, 'update'])->name('pemindahan-update');
+        Route::delete('/pemindahan-delete/{params}', [App\Http\Controllers\PemindahanDanaController::class, 'delete'])->name('pemindahan-delete');
+
         Route::get('/vw-jurnal-umum', [App\Http\Controllers\ReportController::class, 'vw_jurnal_umum'])->name('vw-jurnal-umum');
         Route::get('/get-jurnal-umum', [App\Http\Controllers\ReportController::class, 'get_jurnal_umum'])->name('get-jurnal-umum');
 

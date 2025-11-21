@@ -23,7 +23,7 @@
                         <div class="d-flex justify-content-center"><img src="{{ asset('logo.png') }}" class="img-fluid"
                                 alt=""></div>
                         <div class="text-center mb-3">
-                            <h6 class="fw-bold text-uppercase">bengkel mobil mmm</h6>
+                            <h6 class="fw-bold text-uppercase">mmmaeroautomotive</h6>
                             <small>Jl. Tun Abdul Razak</small>
                         </div>
 
